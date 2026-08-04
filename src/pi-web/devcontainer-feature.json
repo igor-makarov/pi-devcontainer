@@ -1,7 +1,7 @@
 {
     "name": "Pi Web",
     "id": "pi-web",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Installs Pi Web from the main branch on GitHub and starts it with the container.",
     "documentationURL": "https://github.com/ashwin-pc/pi-web",
     "dependsOn": {
