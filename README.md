@@ -1,25 +1,24 @@
-# Pi Dev Container Feature
+# Pi Dev Container Features
 
-A [Dev Container Feature](https://containers.dev/implementors/features/) that installs the [Pi coding agent](https://github.com/earendil-works/pi) globally with npm.
+Dev Container Features for the [Pi coding agent](https://github.com/earendil-works/pi) and [Pi Web](https://github.com/ashwin-pc/pi-web).
 
-## Usage
+## Pi
+
+Installs the Pi coding agent globally from npm.
 
 ```jsonc
-{
-    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-    "features": {
-        "ghcr.io/igor-makarov/pi-devcontainer/pi:1": {}
-    }
+"features": {
+    "ghcr.io/igor-makarov/pi-devcontainer/pi:1": {}
 }
 ```
 
-The Feature depends on the official Node.js Feature and installs the latest LTS version of Node.js. After the container is built, run:
+The Feature depends on the official Node.js Feature and installs the latest LTS release of Node.js. After the container is built, run:
 
 ```sh
 pi
 ```
 
-## Options
+### Options
 
 | Option | Description | Default |
 |---|---|---|
@@ -35,6 +34,26 @@ For example, to pin a release:
 }
 ```
 
+## Pi Web
+
+Installs Pi Web from the `main` branch on GitHub using npm and starts it whenever the container starts.
+
+```jsonc
+{
+    "features": {
+        "ghcr.io/igor-makarov/pi-devcontainer/pi-web:1": {}
+    },
+    "forwardPorts": [8787],
+    "portsAttributes": {
+        "8787": {
+            "label": "Pi Web"
+        }
+    }
+}
+```
+
+Features cannot declare forwarded ports themselves, so port 8787 must be configured in the consuming `devcontainer.json`. Server output is written to `/tmp/dev-server.log`.
+
 ## Development
 
 Install the locked Node.js and [Dev Container CLI](https://github.com/devcontainers/cli) toolchain with [mise](https://mise.jdx.dev/):
@@ -43,10 +62,10 @@ Install the locked Node.js and [Dev Container CLI](https://github.com/devcontain
 mise install --locked
 ```
 
-Then validate and test the Feature:
+Then validate and test the Features:
 
 ```sh
-devcontainer features test --project-folder . --features pi
+devcontainer features test --project-folder .
 ```
 
-The workflows in `.github/workflows/` validate, test, and publish the Feature to GHCR. Documentation is maintained manually in this repository.
+The workflows in `.github/workflows/` validate, test, and publish the Features to GHCR. Documentation is maintained manually in this repository.

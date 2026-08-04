@@ -1,0 +1,13 @@
+{
+    "name": "Pi Web",
+    "id": "pi-web",
+    "version": "1.0.0",
+    "description": "Installs Pi Web from the main branch on GitHub and starts it with the container.",
+    "documentationURL": "https://github.com/ashwin-pc/pi-web",
+    "dependsOn": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "lts"
+        }
+    },
+    "postStartCommand": "nohup bash -lic 'pi-web > /tmp/dev-server.log 2>&1 &' >/dev/null 2>&1"
+}

@@ -1,0 +1,9 @@
+{
+    "pi_and_pi_web": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "pi": {},
+            "pi-web": {}
+        }
+    }
+}
