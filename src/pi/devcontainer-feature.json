@@ -1,7 +1,7 @@
 {
     "name": "Pi Coding Agent",
     "id": "pi",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Installs the Pi coding agent using npm.",
     "documentationURL": "https://github.com/earendil-works/pi",
     "options": {
@@ -12,6 +12,11 @@
             ],
             "default": "latest",
             "description": "The npm version or dist-tag of @earendil-works/pi-coding-agent to install."
+        },
+        "settings": {
+            "type": "string",
+            "default": "",
+            "description": "A JSON object to write to the remote user's ~/.pi/agent/settings.json. Do not include secrets."
         }
     },
     "dependsOn": {

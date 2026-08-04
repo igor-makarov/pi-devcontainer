@@ -6,5 +6,15 @@
                 "version": "0.82.1"
             }
         }
+    },
+    "configured_settings": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "remoteUser": "vscode",
+        "features": {
+            "pi": {
+                "version": "0.82.1",
+                "settings": "{\"defaultProvider\":\"anthropic\",\"defaultThinkingLevel\":\"high\",\"enableInstallTelemetry\":false,\"compaction\":{\"reserveTokens\":8192}}"
+            }
+        }
     }
 }

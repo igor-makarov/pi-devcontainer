@@ -23,6 +23,7 @@ pi
 | Option | Description | Default |
 |---|---|---|
 | `version` | npm version or dist-tag of `@earendil-works/pi-coding-agent` | `latest` |
+| `settings` | JSON object string written to the remote user's `~/.pi/agent/settings.json` | empty |
 
 For example, to pin a release:
 
@@ -33,6 +34,18 @@ For example, to pin a release:
     }
 }
 ```
+
+Dev Container Feature options cannot contain nested objects, but Pi settings can be supplied as a JSON-encoded string:
+
+```jsonc
+"features": {
+    "ghcr.io/igor-makarov/pi-devcontainer/pi:1": {
+        "settings": "{\"defaultProvider\":\"anthropic\",\"defaultThinkingLevel\":\"high\",\"enableInstallTelemetry\":false}"
+    }
+}
+```
+
+This replaces `~/.pi/agent/settings.json` for the remote user. Do not include API keys or other secrets in Feature options; use Dev Container or Codespaces secrets instead.
 
 ## Pi Web
 
