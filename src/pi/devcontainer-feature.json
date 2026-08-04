@@ -1,0 +1,22 @@
+{
+    "name": "Pi Coding Agent",
+    "id": "pi",
+    "version": "1.0.0",
+    "description": "Installs the Pi coding agent using npm.",
+    "documentationURL": "https://github.com/earendil-works/pi",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest"
+            ],
+            "default": "latest",
+            "description": "The npm version or dist-tag of @earendil-works/pi-coding-agent to install."
+        }
+    },
+    "dependsOn": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "lts"
+        }
+    }
+}

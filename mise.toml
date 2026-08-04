@@ -1,0 +1,11 @@
+[settings]
+experimental = true
+lockfile = true
+lockfile_platforms = ["macos-arm64", "linux-x64"]
+
+[tools]
+node = "lts"
+devcontainer = "latest"
+
+[tool_alias]
+devcontainer = "npm:@devcontainers/cli"
